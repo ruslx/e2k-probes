@@ -1,8 +1,10 @@
+CC=gcc
+
 all:
-	gcc -o test test.c
+	$(CC) -o test test.c
 
 s:
-	gcc -S test.c
+	$(CC) -S test.c
 
 clean:
 	rm -rf test *.s
