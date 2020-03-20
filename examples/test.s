@@ -12,13 +12,21 @@ main:
 	  disp	%ctpr1, puts
 	}
 	{
-	  addd,0	0x0, [ _f64,_lts0 .LC.2 ], %b[0]
+	  addd,0	0x0, [ _f64,_lts0 .LC.4 ], %b[0]
 	}
 	{
 	  nop 2
 	  getsp,0	_f32s,_lts0 0xfffffff0, %r2
 	}
 .LCS.1:
+	{
+	  call	%ctpr1, wbs = 0x4
+	}
+	{
+	  nop 4
+	  disp	%ctpr1, puts
+	  addd,0	0x0, [ _f64,_lts0 .LC.3 ], %b[0]
+	}
 	{
 	  call	%ctpr1, wbs = 0x4
 	}
@@ -34,7 +42,10 @@ main:
 	.size	main, .- main
 	.section .rodata
 	.align	16
-.LC.2:
+.LC.3:
+	.ascii	"MCST eLbrus C Compiler\000"
+	.align	16
+.LC.4:
 	.ascii	"Hello World\000"
 	.weak	elbrus_optimizing_compiler_v1.23.20_Sep__4_2019
 	elbrus_optimizing_compiler_v1.23.20_Sep__4_2019 = 0x0
